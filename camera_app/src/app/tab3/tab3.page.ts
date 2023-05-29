@@ -11,3 +11,4 @@ export class Tab3Page {
   constructor(public photoService: PhotoService) {}
 
 }
+

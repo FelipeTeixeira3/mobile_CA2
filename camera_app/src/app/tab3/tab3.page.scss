@@ -11,6 +11,8 @@ ion-title {
   position: relative;
   height: 100%; /* Altura do elemento */
   width: 100%; /* Largura do elemento */
+  position: relative;
+  z-index: 1;
 }
 
 .my-background::before {
@@ -26,3 +28,11 @@ ion-title {
   background-repeat: no-repeat;  /* Para não repetir a imagem */
   background-attachment: fixed;  /* Make the background image fixed */
 }
+
+ion-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
