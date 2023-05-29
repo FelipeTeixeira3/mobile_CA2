@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Camera, CameraResultType, CameraSource, Photo} from "@capacitor/camera";
+import { Camera, CameraResultType, CameraSource, Photo } from '@capacitor/camera';
 import { Filesystem, Directory } from '@capacitor/filesystem';
 import { Platform } from '@ionic/angular';
 
@@ -17,9 +17,8 @@ export class PhotoService {
 
   private async convertBase64(photo: Photo) {
     if (photo.webPath) {
-      const res = await fetch(photo.webPath);
-      const blob = await res.blob();
-      
+      const response = await fetch(photo.webPath);
+      const blob = await response.blob();
       return await this.convertBlobTo64(blob) as string;
     } 
     return null;
@@ -31,9 +30,9 @@ export class PhotoService {
       reader.onerror = reject;
       reader.onload = () => {
         resolve(reader.result);
-      }
+      };
       reader.readAsDataURL(blob);
-    })
+    });
   }
 
   private async saveToDevice(photo: Photo) {
@@ -50,10 +49,17 @@ export class PhotoService {
       console.log(filename);
       console.log(savedFile);
 
-      return {
+      const userPhoto = {
         filepath: filename,
         webviewPath: photo.webPath
       };
+
+      // Update the first item in the photos array
+      if (this.photos.length) {
+        this.photos[0] = userPhoto;
+      }
+
+      return userPhoto;
     } else {
       // Return null or throw an error if there is no base64 data
       return null;
@@ -69,12 +75,12 @@ export class PhotoService {
     });
 
     this.photos.unshift({
-      filepath: 'tbd',
+      filepath: 'tbd', // temporary value
       webviewPath: photo.webPath
     });
 
     console.log(this.photos.length);
-    this.saveToDevice(photo);
+    await this.saveToDevice(photo);
   }
 }
 
