@@ -1,15 +1,20 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 2
+      Camera Ap, Click and enjoy!
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+
+<ion-content [fullscreen]="true">
+  <div class="my-background"></div>
   <ion-fab>
     <ion-fab-button (click)="takePhoto()">
       <ion-icon name="camera"></ion-icon>
     </ion-fab-button>
   </ion-fab>
-</ion-content>
+  </ion-content>
+
+
+

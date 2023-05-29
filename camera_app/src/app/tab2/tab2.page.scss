@@ -1,0 +1,18 @@
+ion-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+    color: #b9b9b9;
+    background-color: black;
+
+  }
+
+.my-background {
+    background-image: url('../../theme/camera.png'); /* substitua 'url_da_sua_imagem.jpg' pelo caminho da sua imagem */
+    height: 100%;  /* Altura do elemento */
+    width: 100%;   /* Largura do elemento */
+    background-size: cover;  /* Cobrir todo o espaço do elemento */
+    background-repeat: no-repeat;  /* Para não repetir a imagem */
+    background-attachment: fixed;  /* Make the background image fixed */
+    position: absolute; /* Permitir que o conteúdo seja colocado sobre a imagem */
+  }
