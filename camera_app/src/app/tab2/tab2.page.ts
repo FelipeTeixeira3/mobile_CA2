@@ -8,6 +8,7 @@ import { PhotoService } from '../services/photo.service';
 })
 export class Tab2Page {
 
+  // constructor -  method used to initialize a newly created object and calls the takePhoto() method from the PhotoService
   constructor(private photoService: PhotoService) { }
   takePhoto() {
     this.photoService.takePhoto();
